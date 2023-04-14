@@ -1,0 +1,878 @@
+﻿@font-face {
+    font-family: 'Raleway';
+    src: url('../Font/raleway-regular.eot')format('opentype');
+    src: url('../Font/Raleway-Regular.ttf')format('truetype');
+    font-family:'Goudy Old Style';
+    src:url('../font/GOUDOS.TTF')format('truetype');
+}
+/*//////////////////////////////////////////////////////////////////
+[ RESTYLE TAG ]*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100vh;
+    font-family: Raleway, sans-serif;
+    background-color: #fff;
+    /*background: linear-gradient(180deg, #2E294E 67%, white 33%);*/
+    background-repeat: no-repeat;
+}
+
+/*---------------------------------------------*/
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.homecontainer {
+    width: 100%;
+    height: 100%;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 93vh;
+    padding: 0 50px;
+}
+
+/*====================Calendar style starts====================*/
+.calendar {
+    position: relative; /*for square div*/
+    width: 36vw;
+    border: 2px solid #434A42;
+    overflow: hidden;
+    border-radius: 4px;
+    align-self: flex-end;
+}
+
+.calendarcontent { /*So that content inside the square div does not take space and make it disproportionate.*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.calendar:after { /*So that content inside the square div does not take space and make it disproportionate.*/
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.calendarheading, .notificationsheading {
+    color: #434A42;
+    /*background: #f7ff00;
+    background: -webkit-linear-gradient(to right, #db36a4, #f7ff00);
+    background: linear-gradient(to right, #db36a4, #f7ff00);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+    width: 36vw;
+    font-size: 4rem;
+    font-weight: bold;
+    align-self: flex-start;
+    position: absolute;
+    font-family: 'Goudy Old Style';
+}
+
+.notificationsheading {
+    position: unset;
+}
+
+.calendarstyle {
+    border: none !important;
+    text-decoration: none;
+    letter-spacing: 0px;
+    width: 100%;
+    font-size: 13px;
+    border-collapse: separate !important;
+    border-spacing: 5px;
+    height: 84%;
+}
+
+    .calendarstyle tr:first-child td {
+        background-color: #434A42;
+        line-height: 125%;
+        color: white;
+    }
+
+        .calendarstyle tr:first-child td a {
+            color: white !important;
+        }
+
+        .calendarstyle tr:first-child td:first-child {
+            border-radius: 4px 0 0 0;
+            border: none;
+        }
+
+        .calendarstyle tr:first-child td:last-child {
+            border-radius: 0 4px 0 0;
+            border: none;
+        }
+
+    .calendarstyle td a {
+        text-decoration: none;
+    }
+
+.othermonth {
+    font-size: 13px;
+    border: 1px solid darkslategrey;
+}
+
+    .othermonth a {
+        color: darkslategrey;
+        padding: 4px;
+    }
+
+.title {
+    font-family: Raleway;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    background-color: transparent !important;
+    height: 100%;
+}
+
+.DayHeaderStyle {
+    width: 10px;
+    font-size: 13px;
+    color: white;
+    height: 14%;
+    color: gray;
+}
+
+.DayStyle {
+    font-size: 13px;
+    min-height: 14%;
+    border: 1px solid darkslategrey;
+}
+
+.Leavehalf {
+    background: -webkit-repeating-linear-gradient(#ff8da1, #ff8da1 50%,white 0%, white 100%);
+    background: -o-repeating-linear-gradient( #ff8da1,#ff8da1 50%, white 0%, white 100%);
+    background: -moz-repeating-linear-gradient(#ff8da1,#ff8da1 50%, white 0%,white 100%);
+    background: repeating-linear-gradient( #ff8da1,#ff8da1 50%, white 0%, white 100%);
+    font-family: Raleway;
+    color: darkslategrey;
+    border: 1px solid darkslategrey;
+    min-height: 12%;
+}
+
+.Leave {
+    background-color: #f3a7f3;
+    background: -webkit-repeating-linear-gradient(#ff8da1, #ff8da1 0%, #ff8da1 0%,#ff8da1 100%);
+    background: -o-repeating-linear-gradient( #ff8da1,#ff8da 10%, #ff8da1 0%, #ff8da1 100%);
+    background: -moz-repeating-linear-gradient(#ff8da1,#ff8da1 0%, #ff8da1 0%,#ff8da1 100%);
+    background: repeating-linear-gradient( #ff8da1,#ff8da1 0%, #ff8da1 0%,#ff8da1 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    min-height: 12%;
+}
+
+.biomerticblank {
+    background-color: white;
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    min-height: 12%;
+    color: darkslategrey;
+}
+
+.present {
+    background: -webkit-repeating-linear-gradient( #7bdbb2, #23c47f 20%, white 0%, white 95%);
+    background: -o-repeating-linear-gradient( #7bdbb2,#23c47f 20%, white 0%, white 95%);
+    background: -moz-repeating-linear-gradient(#7bdbb2,#23c47f 20%, white 0%,white 95%);
+    background: repeating-linear-gradient( #7bdbb2,#23c47f 20%, white 0%, white 95%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: Lime;
+    min-height: 12%;
+}
+
+.hd {
+    background: -webkit-repeating-linear-gradient( #fec80a, #fec80a 50%, white 0%, white 95%);
+    background: -o-repeating-linear-gradient( #fec80a,#fec80a 50%, white 0%, white 95%);
+    background: -moz-repeating-linear-gradient(#fec80a,#fec80a 50%, white 0%,white 95%);
+    background: repeating-linear-gradient( #fec80a,#fec80a 50%, white 0%, white 95%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.Absent {
+    background: -webkit-repeating-linear-gradient( #ee5433, #ee5433 20%, white 0%, white 95%);
+    background: -o-repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 95%);
+    background: -moz-repeating-linear-gradient(#ee5433,#ee5433 20%, white 0%,white 95%);
+    background: repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 95%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+    max-height: 14%
+}
+
+.Absentem {
+    background: -webkit-repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: -o-repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: -moz-repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: repeating-linear-gradient( #ee5433,#ee5433 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.lmAbsent {
+    background: -webkit-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#ee5433,#ee5433 100%);
+    background: -o-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#ee5433,#ee5433 100%);
+    background: -moz-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#ee5433,#ee5433 100%);
+    background: repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#ee5433,#ee5433 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.hdem {
+    background: -webkit-repeating-linear-gradient( #fec80a, #fec80a 50%, white 0%, #149ba5,#149ba5 100%);
+    background: -o-repeating-linear-gradient( #fec80a,#fec80a 50%, white 0%, #149ba5,#149ba5 100%);
+    background: -moz-repeating-linear-gradient(#fec80a,#fec80a 50%, white 0%,#149ba5,#149ba5 100%);
+    background: repeating-linear-gradient( #fec80a,#fec80a 50%, white 0%, #149ba5,#149ba5 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.lm {
+    background: -webkit-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 95%);
+    background: -o-repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%, white 95%);
+    background: -moz-repeating-linear-gradient(#9934ff,#9934ff 20%, white 0%,white 95%);
+    background: repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%, white 95%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.lmem {
+    background: -webkit-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: -o-repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: -moz-repeating-linear-gradient(#9934ff,#9934ff 20%, white 0%, white 80%,#149ba5,#149ba5 100%);
+    background: repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%,white 80%, #149ba5,#149ba5 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.lmhd {
+    background: -webkit-repeating-linear-gradient( #9934ff, #9934ff 20%, white 0%, white 80%,#fec80a,#fec80a 100%);
+    background: -o-repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%, white 80%,#fec80a,#fec80a 100%);
+    background: -moz-repeating-linear-gradient(#9934ff,#9934ff 20%, white 0%, white 80%,#fec80a,#fec80a 100%);
+    background: repeating-linear-gradient( #9934ff,#9934ff 20%, white 0%,white 80%, #fec80a,#fec80a 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.em {
+    background: -webkit-repeating-linear-gradient( #149ba5, #149ba5 20%, white 0%, white 95%);
+    background: -o-repeating-linear-gradient( #149ba5,#149ba5 20%, white 0%, white 95%);
+    background: -moz-repeating-linear-gradient(#149ba5, #149ba5 20%, white 0%,white 95%);
+    background: repeating-linear-gradient( #149ba5,#149ba5 20%, white 0%, white 95%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.holi {
+    background: -webkit-repeating-linear-gradient(#00ffff, #00ffff 95%, #00e6e6 0%, #00e6e6 0%);
+    background: -o-repeating-linear-gradient( #00ffff,#00ffff 95%, #00e6e6 0%, #00e6e6 0%);
+    background: -moz-repeating-linear-gradient(#00ffff #00ffff 95%, #00e6e6 0%,#00e6e6 0%);
+    background: repeating-linear-gradient( #00ffff,#00ffff 95%, #00e6e6 0%, #00e6e6 0%);
+    font-size: 14px;
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+}
+
+.weeklyoff {
+    background-color: #fff;
+    background: -webkit-repeating-linear-gradient(#fff, #fff 0%, #fff 0%,#fff 100%);
+    background: -o-repeating-linear-gradient( #fff,#ff8da 10%, #fff 0%, #fff 100%);
+    background: -moz-repeating-linear-gradient(#fff,#fff 0%, #fff 0%,#fff 100%);
+    background: repeating-linear-gradient( #fff,#fff 0%, #fff 0%,#fff 100%);
+    font-family: Raleway;
+    border: 1px solid darkslategrey;
+    color: darkslategrey;
+    min-height: 12%;
+    font-weight: bold;
+}
+
+.legendtable {
+    width: 36vw;
+    margin-top: 1.2%;
+    border-collapse: separate;
+    border-spacing: 2px;
+    padding: 2px;
+    height: 15%;
+    align-self: flex-end;
+}
+
+    .legendtable td {
+        width: 14%;
+        text-align: center;
+        font-size: 13px;
+        height: 40px;
+    }
+
+.ab {
+    /*border: 1px solid #ee5433;*/
+    cursor: pointer;
+    color: #ee5433;
+    font-weight: bold;
+}
+
+.pre {
+    /*border: 1px solid #23c47f;*/
+    cursor: pointer;
+    color: #23c47f;
+    font-weight: bold;
+}
+
+.halfday {
+    /*border: 1px solid #fec80a;*/
+    cursor: pointer;
+    color: #fec80a;
+    font-weight: bold;
+}
+
+.holiday {
+    /*border: 1px solid #00ffff;*/
+    cursor: pointer;
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.leav {
+    /*border: 1px solid #ff8da1;*/
+    cursor: pointer;
+    color: #ff8da1;
+    font-weight: bold;
+}
+
+.latemark {
+    /*border: 1px solid #9934ff;*/
+    cursor: pointer;
+    color: #9934ff;
+    font-weight: bold;
+}
+
+.earlymark {
+    /*border: 1px solid #149ba5;*/
+    cursor: pointer;
+    color: #149ba5;
+    font-weight: bold;
+}
+
+/*====================Calendar style ends====================*/
+
+
+/*====================Leave summary starts====================*/
+
+.leavesummaryheading {
+    width: 36vw;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    align-self: flex-end;
+    position: absolute;
+    font-family:'Goudy Old Style';
+}
+
+    .leavesummaryheading a {
+        color: #434A42;
+        /*background: #f7ff00;
+        background: -webkit-linear-gradient(to right, #db36a4, #f7ff00);
+        background: linear-gradient(to right, #db36a4, #f7ff00);
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;*/
+        text-decoration: none;
+        font-family: 'Goudy Old Style';
+    }
+
+.leavesummary {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 0.7em;
+    padding: 2%;
+    align-self: flex-start;
+}
+
+    .leavesummary > * {
+        cursor: pointer;
+    }
+
+    .leavesummary span {
+        font-size: 3rem;
+        color: #434A42;
+        text-align: center;
+        padding: 0.4em;
+    }
+
+    .leavesummary div {
+        font-size: 3rem;
+        color: #434A42;
+    }
+
+.leavelabel { /*used inside divs with style display none*/
+    font-size: 13px;
+    font-family: Raleway;
+    color: White;
+}
+
+.list-inline { /*used inside divs with style display none*/
+    font-size: 13px;
+}
+
+/*====================Leave summary ends====================*/
+
+/*Regularization form starts*/
+table.regularization {
+    width: 400px;
+    margin-top: 5px;
+    background-color: white;
+    color: gray;
+    font-family: Raleway;
+    font-size: 13px;
+    border: 1px solid #00a4c4;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.regularization td {
+    font-size: 13px;
+    padding: 10px;
+}
+
+.regularization tr:first-child td:first-child {
+    border-bottom: 1px solid #ff8da1;
+    font-size: 14px;
+}
+
+.regularization tr:nth-child(3) td:first-child,
+.regularization tr:nth-child(5) td:first-child,
+.regularization tr:nth-child(7) td:first-child,
+.regularization tr:nth-child(9) td:first-child,
+.regularization tr:nth-child(11) td:first-child,
+.regularization tr:nth-child(13) td:first-child {
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.regularization tr:last-child td:first-child,
+.regularization tr:last-child td:last-child {
+    width: 50px;
+}
+
+.inputfields {
+    border: none;
+    color: gray;
+    width: 400px;
+    font-family: Raleway;
+    font-size: 13px;
+}
+
+.button {
+    background-color: #00a4c4;
+    color: white;
+    margin-left: 15px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+}
+
+/*Regularization form ends*/
+
+
+/*====================Notifications start====================*/
+
+.birth {
+    margin-left: 10px;
+    color: gray;
+    font-size: 13px;
+}
+
+img {
+    height: 24px;
+    width: 24px;
+}
+
+.newimage { /*New joinee*/
+    display: inline;
+    margin-left: 210px;
+}
+
+.newimage1 { /*New joinee*/
+    display: none;
+}
+
+.newnormal { /*New joinee*/
+    display: inline;
+    background-repeat: no-repeat;
+    background-color: #00a4c4;
+    opacity: 0.8;
+}
+
+.midline {
+    height: 30px;
+    width: 2px;
+    background-color: White;
+    position: fixed;
+    margin-left: 30px;
+}
+
+.midline1 {
+    margin-left: 30px;
+    display: none;
+}
+
+.leaveimage {
+    display: inline;
+    margin-left: 210px;
+}
+
+.leaveimage1 {
+    display: none;
+}
+
+.leavenormal {
+    display: inline;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.claimimage {
+    display: inline;
+    margin-left: 210px;
+}
+
+.claimimage1 {
+    display: none;
+}
+
+.claimnormal {
+    display: inline;
+    background-repeat: no-repeat;
+    background-color: #00a4c4;
+    opacity: 0.8;
+}
+
+.vertical {
+    width: 32%;
+    height: 0%;
+    border: 1px solid #00a4c4;
+    position: fixed;
+    margin-top: 10%;
+    opacity: 0.5;
+}
+
+.claimvertical {
+    width: 32%;
+    height: 0%;
+    color: white;
+    border: 1px solid #00a4c4;
+    position: fixed;
+    opacity: 0.5;
+    margin-top: 12%;
+}
+
+
+.birthdaytable {
+    border: 1px solid #A0C33D;
+    width: 450px;
+    margin-left: 5px;
+}
+
+/*====================Notifications end====================*/
+
+/*birthday message starts*/
+.style20 {
+    border-right: 1px solid #00a4c4;
+    color: gray;
+}
+/*birthday message ends*/
+
+
+
+.modalBackground {
+    background-color: gray;
+    opacity: 0.5;
+    font-family: Raleway;
+    color: gray;
+}
+
+
+.moveright /*adds 25% margin to the left of its initial position*/ {
+    position: relative;
+    left: 25%;
+}
+
+.moveleft /*adds 25% margin to the right of its initial position*/ {
+    position: absolute;
+    right: 25%;
+}
+
+
+/*====================New Notifications start====================*/
+
+.section:first-child { /*so that the noticfications section does not overlap with the leave summmary section due to limited height.*/
+    height: auto;
+}
+
+/*====================Notifications Grid start====================*/
+
+.notificationsgrid {
+    display: grid;
+    height: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 25vh);
+    grid-gap: 10px;
+    margin-bottom: 50px;
+}
+
+.notificationsgrid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*color: white;*/
+    font-family: 'Goudy Old Style';
+    letter-spacing: 1.5px;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+}
+
+    .notificationsgrid-item.birthdays, .notificationsgrid-item.welcome, .notificationsgrid-item.selfleave{
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+    .notificationsgrid-item.teamleaves, .notificationsgrid-item.itcalls {
+        grid-row: span 1;
+        grid-column: span 2;
+    }
+
+    .notificationsgrid-item.hrhandbook {
+        grid-row: span 2;
+        grid-column: span 1;
+    }
+
+    .notificationsgrid-item.selfclaim, .notificationsgrid-item.teamclaims, .notificationsgrid-item.wclass, .notificationsgrid-item.erfsummary {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+
+.selfclaim {
+    /*background-color: #4F5D75;*/
+    border-left: 5px solid #264653;
+}
+
+.selfleave {
+    /*background-color: #4F5D75;*/
+    border-left: 5px solid #2a9d8f;
+}
+
+/*.itcalls {
+    background-color: #4F5D75;
+}*/
+
+.teamleaves {
+    /*background-color: #4F5D75;*/
+    border-left: 5px solid #e76f51;
+}
+
+.welcome {
+    /*background-color: #E07A5f;*/
+    border-left: 5px solid #f0a390;
+}
+
+.hrhandbook {
+    /*background-color: #4F5D75;*/
+    border-left: 5px solid #e9c46a;
+}
+
+.teamclaims {
+    /*background-color: #4F5D75;*/
+    border-left: 5px solid #ec8c74;
+}
+
+/*.erfsummary {
+    background-color: #4F5D75;
+}*/
+
+.birthdays {
+    /*background-color: #E07A5f;
+    color: white;*/
+    border-left: 5px solid #f4a261;
+}
+
+.whitefont {
+    color:#fff !important;
+}
+
+/*.wclass {
+    background-color: #4F5D75;
+}*/
+
+
+/*====================Notifications Grid end====================*/
+/* Label */
+.notificationsgrid label {
+    height: 41px;
+    line-height: 1.8;
+    padding: 5px 20px;
+    display: block;
+    cursor: pointer;
+    /*color: #fff;*/
+    color:#666;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+
+.notificationsgrid input {
+    display: block;
+    border: none;
+    background-color: transparent;
+    /*color: white !important;*/
+    font-family: 'Goudy Old Style';
+    font-size: 14px;
+    letter-spacing: 1.5px;
+}
+
+.notificationsgrid li {
+    margin-left: 5px;
+    padding: 6px;
+}
+
+    /* Contents */
+.notificationsgrid .content {
+    overflow: hidden;
+    transition: 0.6s;
+    height: 100%;
+}
+
+.notificationsgrid article p {
+    padding: 20px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+}
+
+
+.notificationsgridview {
+    /*max-height: 90%;*/
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/*Width of the grid view table to enable auto-scroll starts.*/
+.notificationsgridviewwidth {
+    min-width: 96%;
+}
+/*Width of the grid view table to enable auto-scroll ends.*/
+
+.notificationsgridview:hover {
+    overflow: auto;
+}
+
+/*Customising the style of scrollbar in chrome and safari. Firefox does not allow customization yet*/
+div.notificationsgridview::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+    div.notificationsgridview::-webkit-scrollbar:vertical {
+        width: 11px;
+    }
+
+    div.notificationsgridview::-webkit-scrollbar:horizontal {
+        height: 11px;
+    }
+
+div.notificationsgridview::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white; /* should match background, can't be transparent */
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.notificationsgridviewheader {
+    padding: 15px 10px 8px 10px;
+    font-weight: normal;
+    border-bottom: 1px solid white;
+    text-align: left;
+    font-family: 'Goudy Old Style';
+    /*color: white;*/
+    color:#666;
+    font-size: 15px;
+    letter-spacing:1.5px;
+    text-align: center;
+    white-space: nowrap;
+    position: sticky; /*For freezing the header*/
+    z-index: 8; /*For freezing the header*/
+    top: 0; /*For freezing the header*/
+}
+
+.notificationsgridviewdata td {
+    padding: 8px 10px;
+    /*color: white !important;*/
+    color: #666;
+    font-family: 'Goudy Old Style';
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+    .notificationsgridviewdata td a {
+        /*color: white !important;*/
+        color: #666;
+        font-family: 'Goudy Old Style';
+        font-size: 14px;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+
+.displayflex {
+    display: flex;
+    gap: 2em;
+}
+
+.nodatafound {
+    color: gray;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+}
+
+/*====================New Notifications end====================*/
+
